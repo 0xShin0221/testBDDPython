@@ -1,11 +1,11 @@
 Feature: Check server services
 
-  Scenario: Check services
-    Given 127.0.0.1でnginxが起動している場合
-    When TCPポート80にアクセスしたら
+  Scenario Outline: Check services
+    Given <host>でnginxが起動している場合
+    When TCPポート<port>にアクセスしたら
     Then TCPセッションが確立できること
 
-  Scenario: Check services
-    Given 127.0.0.1でnginxが起動している場合
-    When TCPポート22にアクセスしたら
-    Then TCPセッションが確立できること
+    Examples: Services
+    | host      | port |
+    | 127.0.0.1 | 80   |
+    | 127.0.0.1 | 22   |
