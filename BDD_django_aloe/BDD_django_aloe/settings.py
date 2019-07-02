@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'aloe_django',
+    'rest_framework',
+    'example',
 ]
 
 MIDDLEWARE = [
