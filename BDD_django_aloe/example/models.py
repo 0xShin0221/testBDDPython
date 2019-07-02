@@ -1,4 +1,5 @@
-# New import!
+from django.conf import settings
+from django.db import models
 from django.db.models import Q
 
 
@@ -19,3 +20,25 @@ class FriendshipManager(models.Manager):
             return friendship.user1
 
         return map(other_user, friendships)
+
+class Friendship(models.Model):
+    PENDING = 'PENDING'
+    ACCEPTED = 'ACCEPTED'
+    REJECTED = 'REJECTED'
+    STATUSES = (
+      (PENDING, PENDING),
+      (ACCEPTED, ACCEPTED),
+      (REJECTED, REJECTED),
+    )
+    objects = FriendshipManager()
+    user1 = models.ForeignKey(
+      settings.AUTH_USER_MODEL,
+      on_delete=models.CASCADE,
+      related_name='user1_friendships'
+    )
+    user2 = models.ForeignKey(
+      settings.AUTH_USER_MODEL,
+      on_delete=models.CASCADE,
+      related_name='user2_friendships'
+    )
+    status = models.CharField(max_length=8, choices=STATUSES, default=PENDING)
