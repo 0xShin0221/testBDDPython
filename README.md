@@ -25,7 +25,7 @@
 
 ## Behavior-Driven Development with Django and Aloe
 
-## Feauture
+### Feauture
 - Test your Django applications using Aloe
 - djangorestframework
 
