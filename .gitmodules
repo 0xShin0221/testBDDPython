@@ -1,0 +1,3 @@
+[submodule "flaskr-bdd"]
+	path = flaskr-bdd
+	url = https://github.com/ismaild/flaskr-bdd
